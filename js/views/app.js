@@ -6,33 +6,39 @@ define(['jquery',
     'underscore',
     'text!../templates/app.html',
     '../collections/collection',
+    '../views/faqsolo',
+    'text!../templates/manual.html',
+    'text!../templates/top-faq.html'
 
-], function ($, Backbone,_, _homeTemplate,appCollection,modelSolo) {
+], function ($, Backbone,_, homeTemplate,appCollection,faqSolo,manualTem,topFaqTem) {
 
     var app=Backbone.View.extend({
         el:".app",
+        template:_.template(homeTemplate),
         initialize:function(){
-            this.$el.html("app里面的内容");
-            var c=new appCollection;
-            this.listenTo(c,"add",this.addOne)
-            this.listenTo(c,"change",this.showChange)
-            c.fetch()
-            c.create({name:"123"})
-            c.create({name:"huhai"})
+            var _this=this;
+            this.$el.html(this.template());
+            //加载manual及topFaq的模板
+            this.$el.append(manualTem);
+            this.$el.append(topFaqTem);
+            //显示collection里面所有model的数据
+            appCollection.models.map(function(model){
+                _this.addOne(model)
+            })
 
-            //c.save()
+
 
         },
-        addOne:function(model){
-            var modelData=model.toJSON();
-            if(modelData.name=='huhai'){
-                model.set({name:"huhai-refreash"})
-            }
+        addOne:function(curModel){
+            var view=new faqSolo({model:curModel})
+            var html=view.render().el;
+            this.$(".top-faq").append(html)
+
+
+
 
     },
-        showChange:function(model){
-        console.log("检测到变化",model.toJSON())
-    }
+
 
 
     })

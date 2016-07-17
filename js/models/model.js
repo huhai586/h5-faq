@@ -3,6 +3,7 @@
  */
 define(['backbone'],function(Backbone){
     var appModel=Backbone.Model.extend({
+     
         defaults:{
             name:'huhai'
         }

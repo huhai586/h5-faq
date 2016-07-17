@@ -1,0 +1,19 @@
+<div class="faq-detail">
+<%
+    var faqListlength=faqList.length;
+    for(var i=0;i<faqListlength;i++){
+    %>
+
+    <div class="faq">
+        <div class="faq-title"><span><%=faqList[i].topic%></span></div>
+        <div class="faq-content">
+            <%=faqList[i].brief%>
+        </div>
+    </div>
+
+
+    <%}%>
+
+
+
+</div>

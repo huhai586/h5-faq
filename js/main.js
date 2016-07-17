@@ -4,7 +4,7 @@
 require.config({
 
     paths: {
-        jquery: '../node_modules/jquery/jquery',
+        jquery: '../node_modules/jquery/dist/jquery',
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
         text: '../node_modules/requirejs-text/text',
@@ -30,6 +30,6 @@ require.config({
     }
 });
 
-require(['views/app'],function(begin){
-   new begin
+require(['backbone','router/router'],function(Backbone,router){
+    Backbone.history.start();
 });

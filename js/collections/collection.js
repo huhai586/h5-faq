@@ -3,14 +3,17 @@
  */
 define( [
         'backbone',
-        '../models/model',
-        "localstorage",
+        '../models/model'
 ],
     function(Backbone,appModel) {
     var SomeCollection = Backbone.Collection.extend({
+        url:"/",
         model:appModel,
-        localStorage: new Backbone.LocalStorage("D34W") // Unique name within your app.
+        initialize:function(){
+            //获取数据
+            this.add(faqs);
+        }
     });
 
-    return SomeCollection;
+    return new SomeCollection;
 });
