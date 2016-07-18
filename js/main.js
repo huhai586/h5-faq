@@ -30,6 +30,7 @@ require.config({
     }
 });
 
-require(['backbone','router/router'],function(Backbone,router){
+require(['backbone','router/router','views/search'],function(Backbone,router,search){
     Backbone.history.start();
+    new search
 });

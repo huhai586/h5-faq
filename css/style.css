@@ -7,15 +7,34 @@ html {
 }
 .item-solo {
   cursor: pointer;
-  border: 2px solid #333;
+  padding: 0.4rem;
   margin-bottom: 0.5rem;
+  background: #fff6cb;
+}
+.item-solo span {
+  padding-left: 1em;
 }
 .tab-icon {
   width: 30px;
+  vertical-align: middle;
 }
 .top-faq {
   margin-top: 1rem;
 }
-.faq-content{
+.faq {
+  margin-bottom: 10px;
+}
+.faq > div {
+  padding: 0.5rem;
+}
+.faq .faq-title {
+  line-height: 36px;
+  background: #fff6cb;
+  cursor: pointer;
+}
+.faq .faq-content {
+  display: none;
+}
+.search-end {
   display: none;
 }

@@ -23,7 +23,6 @@ define(['jquery',
         },
         navTo:function(){
             var modelCId=this.model.cid;
-            debugger
             router.navigate("faqDetail/"+modelCId,{trigger: true})
 
         }

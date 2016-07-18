@@ -21,6 +21,31 @@ define(['jquery',
           var html=this.template(modelData);
           this.$el.html(html)
 
+        },
+        events:{
+            'click .faq-title':"showFAQcontent"
+        },
+        showFAQcontent:function(e){
+            //折叠所有content
+            //this.$(".faq-content").hide();
+           var faqContent= $(e.target).parent().next();
+            //获取当前点击的索引值
+            var index=$(e.target).index();
+            //将所有的active取消
+            $(".faq-content").removeClass("active");
+            //当前的添加active
+            faqContent.addClass("active");
+            //所有的非active折叠
+            $(".faq-content").not(".active").slideUp(230)
+            //判断当前状态，
+            //faqContent.toggle();
+            var isShow=faqContent.is(":visible")
+            if(isShow){
+                faqContent.slideUp(230)
+            }else{
+                faqContent.slideDown(230)
+            }
+
         }
     });
     return app;
